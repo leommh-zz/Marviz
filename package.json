@@ -8,8 +8,16 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "js-md5": "^0.7.3",
+    "moment": "^2.24.0",
     "react": "16.6.3",
-    "react-native": "0.58.4"
+    "react-native": "0.58.4",
+    "react-native-router-flux": "^4.0.6",
+    "react-native-typography": "^1.4.0",
+    "react-redux": "^7.0.2",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",
