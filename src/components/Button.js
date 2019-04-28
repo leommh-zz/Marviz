@@ -12,6 +12,7 @@ const Button = ({ children, ...rest }) => {
     margin-top: 5px;
     margin-bottom: 5px;
     min-width: 30%;
+    ${props => props.outline && { backgroundColor: 'rgba(0,0,0,0)', borderWidth: 1, borderColor: colors.primary }}
   `;
 
   return <ButtonStyled {...rest}>{children}</ButtonStyled>;

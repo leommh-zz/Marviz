@@ -6,6 +6,8 @@ import { colors } from "../styles";
 const TextStyled = styled.Text`
   ${props => props.type};
   color: ${props => props.color ? props.color : colors.white};
+  ${props => props.fontSize && { fontSize: props.fontSize }}
+  ${props => props.align && { textAlign: props.align }}
 `;
 
 export const SmallText = ({ children, ...rest }) => {

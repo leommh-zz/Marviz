@@ -4,6 +4,9 @@ import PrivateScene from "./PrivateScene";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Home from "./pages/Home";
+import ComicPage from "./pages/ComicPage";
+import UserPage from "./pages/UserPage";
 
 class Routes extends Component {
   render() {
@@ -11,7 +14,7 @@ class Routes extends Component {
       <Router>
         <Scene key="root">
           <Scene
-            initial
+            // initial
             key="login"
             component={Login}
             hideNavBar={true}
@@ -19,6 +22,23 @@ class Routes extends Component {
           <Scene
             key="register"
             component={Register}
+            hideNavBar={true}
+          />
+          <Scene
+            initial
+            key="home"
+            type="reset"
+            component={Home}
+            hideNavBar={true}
+          />
+          <Scene
+            key="comicPage"
+            component={ComicPage}
+            hideNavBar={true}
+          />
+          <Scene
+            key="userPage"
+            component={UserPage}
             hideNavBar={true}
           />
         </Scene>

@@ -25,7 +25,7 @@ const Login = props => {
       <TextInput placeholder="Senha" />
       <Divider height="2" />
       <Row align="center" justify="space-between">
-        <Button>
+        <Button onPress={Actions.home}>
           <BigText>Entrar</BigText>
         </Button>
         <Button onPress={Actions.register}>
