@@ -1,10 +1,11 @@
 import React, { PureComponent } from "react";
-import { TouchableOpacity, PixelRatio } from "react-native";
 import { Actions } from "react-native-router-flux";
 import styled from "styled-components/native";
-import { ExtraBigText, RegularText } from "./Text";
+import { ExtraBigText } from "./Text";
 import Image from "./Image";
+import { getValue } from "../services/helpers";
 import { colors } from "../styles";
+
 const MenuStyled = styled.View`
   width: ${props => (props.width ? props.width : "100%")};
   height: ${props => (props.height ? props.height : "70px")};
@@ -40,7 +41,6 @@ const MenuItem = styled.TouchableOpacity`
 `;
 
 class Menu extends PureComponent {
-  getValue = value => PixelRatio.getPixelSizeForLayoutSize(value);
 
   render() {
     return (
@@ -48,8 +48,8 @@ class Menu extends PureComponent {
         <UserInfo onPress={() => Actions.userPage()}>
           <Image
             source={this.props.user.image}
-            width={this.getValue(18)}
-            height={this.getValue(18)}
+            width={getValue(18)}
+            height={getValue(18)}
             resizeMode="contain"
           />
         </UserInfo>

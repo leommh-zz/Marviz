@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { ScrollView } from "react-native";
 import { Actions } from "react-native-router-flux";
 import Button from "../components/Button";
 import Row from "../components/Row";
@@ -9,12 +8,9 @@ import Divider from "../components/Divider";
 import Navbar from "../components/Navbar";
 import TextInput from "../components/TextInput";
 import {
-  SmallText,
-  RegularText,
   BigText,
   ExtraBigText
 } from "../components/Text";
-import { colors } from "../styles";
 
 class Register extends Component {
   state = {

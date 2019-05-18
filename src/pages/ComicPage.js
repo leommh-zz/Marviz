@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components/native";
 import Container from "../components/Container";
-import Column from "../components/Column";
 import Image from "../components/Image";
 import Navbar from "../components/Navbar";
 import Button from "../components/Button";
 import Loader from "../components/Loader";
-import { PixelRatio, ScrollView } from "react-native";
-import { BigText, RegularText, SmallText } from "../components/Text";
-import { stringCut } from "../services/helpers";
+import { ScrollView } from "react-native";
+import { BigText, RegularText } from "../components/Text";
+import { stringCut, getValue } from "../services/helpers";
 import { favorite } from "../actions/UserActions";
 
 const Header = styled.View`
@@ -33,22 +32,21 @@ const Options = styled.View`
 
 class ComicPage extends Component {
   state = {
-    favorited: false, 
-    loading: false,
+    favorited: false,
+    loading: false
   };
 
-  getValue = value => PixelRatio.getPixelSizeForLayoutSize(value);
-
   favoritedFilter = () => {
-    this.props.user.comicsFavorite.filter(c => c.id === this.props.comic.id).length > 0 ?
-    this.setState({ favorited: true }) : this.setState({ favorited: false });
-  }
+    this.props.user.comicsFavorite.filter(c => c.id === this.props.comic.id)
+      .length > 0
+      ? this.setState({ favorited: true })
+      : this.setState({ favorited: false });
+  };
 
-  favorite = async (comic) => {
+  favorite = async comic => {
     await this.setState({ loading: true });
     setTimeout(() => this.props.favorite({ comic }), 1000);
-    
-  }
+  };
 
   componentDidMount() {
     this.favoritedFilter();
@@ -80,36 +78,33 @@ class ComicPage extends Component {
     return (
       <Container>
         <Navbar />
-        <ScrollView style={{ flex: 1 }}>
-          <Column flex={1}>
+        <ScrollView
+          style={{ flex: 1, width: "100%" }}
+          contentContainerStyle={{ alignItems: "center" }}
+        >
             <Header>
               <BigText align="center">{title}</BigText>
             </Header>
 
             <Image
               source={{ uri: thumbnail }}
-              width={this.getValue(80)}
-              height={this.getValue(80)}
+              width={getValue(80)}
+              height={getValue(80)}
               radius={10}
-              // resizeMode=""
             />
 
             <Options>
               <Button
                 outline={!favorited ? true : false}
-                
                 onPress={!loading ? () => this.favorite(comic) : () => false}
               >
-                {
-                  !loading ? (
-                    <RegularText>
-                      {!favorited ? "Favoritar" : "Desfavoritar"}
-                    </RegularText>
-                  ) : (
-                    <Loader size={20} />
-                  )
-                }
-                
+                {!loading ? (
+                  <RegularText>
+                    {!favorited ? "Favoritar" : "Desfavoritar"}
+                  </RegularText>
+                ) : (
+                  <Loader size={20} />
+                )}
               </Button>
             </Options>
 
@@ -119,7 +114,6 @@ class ComicPage extends Component {
                 <RegularText>{stringCut(description, 200, "...")}</RegularText>
               </Info>
             )}
-          </Column>
         </ScrollView>
       </Container>
     );

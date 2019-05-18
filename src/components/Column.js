@@ -7,10 +7,11 @@ const Column = ({ children, ...rest }) => {
     flex-direction: column;
     width: 100%;
     align-items: ${props => props.align ? props.align : 'center'};
-    justify-content: ${props => props.justify ? props.justify : 'center'};
     margin: ${props => props.margin ? props.margin : '5px'};
     padding: ${props => props.padding ? props.padding : '10px'};
     min-height: ${props => props.minHeight ? props.minHeight : '0px'};
+    ${props => props.justify && { ...props.justify }};
+    ${props => props.style && { ...props.style }};
   `;
 
   return <ColumnStyled {...rest}>{children}</ColumnStyled>;

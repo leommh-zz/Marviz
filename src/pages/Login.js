@@ -7,12 +7,9 @@ import Container from "../components/Container";
 import Divider from "../components/Divider";
 import TextInput from "../components/TextInput";
 import {
-  SmallText,
-  RegularText,
   BigText,
   ExtraBigText
 } from "../components/Text";
-import { colors } from "../styles";
 
 const Login = props => {
   return (

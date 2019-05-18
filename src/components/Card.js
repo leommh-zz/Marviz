@@ -12,7 +12,8 @@ const CardStyled = styled.TouchableOpacity`
   margin-right: 15px;
   margin-top: 5px;
   margin-bottom: 5px;
-  ${props => props.width && { maxWidth: props.width }}
+  ${props => props.width && { maxWidth: props.width }};
+  ${props => props.margin && { margin: props.margin }}
 `;
 
 class Card extends PureComponent {

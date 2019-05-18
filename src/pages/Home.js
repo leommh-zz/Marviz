@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Container from "../components/Container";
-import Column from "../components/Column";
 import Comic from "../components/Comic";
 import Loader from "../components/Loader";
 import Menu from "../components/Menu";
@@ -25,7 +24,7 @@ class Home extends Component {
 
   render() {
     
-    const { comics, loading } = this.state;
+    const { comics } = this.state;
     return (
       <Container>
         <Menu user={this.props.user}/>
@@ -39,9 +38,9 @@ class Home extends Component {
             refreshFunc={() => this.getComics()}
           />
         ) : (
-          <Column flex={1}>
+          <Container flex={1}>
             <Loader size={50} />
-          </Column>
+          </Container>
         )}
       </Container>
     );

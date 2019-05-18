@@ -3,13 +3,11 @@ import { Actions } from "react-native-router-flux";
 import styled from "styled-components/native";
 import Card from "./Card";
 import Image from "./Image";
-import { stringCut } from "../services/helpers";
+import { stringCut, getValue } from "../services/helpers";
 import { SmallText } from "./Text";
-import { PixelRatio } from "react-native";
 import { colors } from "../styles";
 
 class Comic extends Component {
-  getWidth = value => PixelRatio.getPixelSizeForLayoutSize(value);
 
   render() {
     const {
@@ -36,7 +34,7 @@ class Comic extends Component {
 
     return (
       <Card
-        width={this.getWidth(50)}
+        width={getValue(50)}
         onPress={() => Actions.comicPage({ comic: this.props.item, thumbnail: url })}
       >
         <ComicStyled>
@@ -45,7 +43,7 @@ class Comic extends Component {
           </HeaderStyled>
           <Image
             source={{ uri: url }}
-            width={this.getWidth(50)}
+            width={getValue(50)}
             radiusBottom={10}
           />
         </ComicStyled>

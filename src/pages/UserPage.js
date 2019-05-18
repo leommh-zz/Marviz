@@ -7,9 +7,8 @@ import Container from "../components/Container";
 import Column from "../components/Column";
 import Image from "../components/Image";
 import Navbar from "../components/Navbar";
-import { PixelRatio, ScrollView } from "react-native";
-import { BigText, RegularText, SmallText } from "../components/Text";
-import { stringCut } from "../services/helpers";
+import { BigText } from "../components/Text";
+import { stringCut,  getValue } from "../services/helpers";
 
 const Header = styled.View`
   padding: 20px;
@@ -17,14 +16,7 @@ const Header = styled.View`
   align-items: center;
 `;
 
-const Info = styled.View`
-  padding: 20px;
-  justify-content: center;
-  align-items: center;
-`;
-
 class userPage extends Component {
-  getValue = value => PixelRatio.getPixelSizeForLayoutSize(value);
 
   render() {
     const {
@@ -33,7 +25,7 @@ class userPage extends Component {
     return (
       <Container>
         <Navbar />
-        <ScrollView style={{ flex: 1, width: '100%' }}>
+        <Column style={{ flex: 1 }}>
         
             <Header>
               <BigText align="center">{name}</BigText>
@@ -41,14 +33,10 @@ class userPage extends Component {
 
             <Image
               source={image}
-              height={this.getValue(50)}
+              height={getValue(50)}
               radius={10}
               resizeMode="contain"
             />
-
-            {
-                console.warn(this.props.user)
-            }
 
             <List
                 title="Comics Favoritas"
@@ -58,8 +46,7 @@ class userPage extends Component {
                 numColumns={2}
             />
             
-     
-        </ScrollView>
+        </Column>
       </Container>
     );
   }
