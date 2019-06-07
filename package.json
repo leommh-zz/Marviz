@@ -1,17 +1,20 @@
 {
-  "name": "Marviz",
-  "version": "0.0.1",
-  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "expo": "^32.0.0",
     "js-md5": "^0.7.3",
     "moment": "^2.24.0",
     "react": "16.5.0",
-    "react-native": "0.58.4",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-image-view": "^2.1.4",
     "react-native-router-flux": "^4.0.6",
     "react-native-typography": "^1.4.0",
     "react-redux": "6.0.0",
@@ -22,11 +25,10 @@
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "24.7.1",
+    "babel-preset-expo": "^5.0.0",
     "jest": "24.7.1",
     "metro-react-native-babel-preset": "0.53.1",
     "react-test-renderer": "16.6.3"
   },
-  "jest": {
-    "preset": "react-native"
-  }
+  "private": false
 }

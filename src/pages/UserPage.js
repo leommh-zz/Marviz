@@ -8,7 +8,7 @@ import Column from "../components/Column";
 import Image from "../components/Image";
 import Navbar from "../components/Navbar";
 import { BigText } from "../components/Text";
-import { stringCut,  getValue } from "../services/helpers";
+import { stringCut, getValue } from "../services/helpers";
 
 const Header = styled.View`
   padding: 20px;
@@ -24,29 +24,27 @@ class userPage extends Component {
     } = this.props;
     return (
       <Container>
-        <Navbar />
-        <Column style={{ flex: 1 }}>
-        
-            <Header>
-              <BigText align="center">{name}</BigText>
-            </Header>
+        <Navbar navigateInternal={this.props.navigateInternal} />
+  
+        <Header>
+          <BigText align="center">{name}</BigText>
+        </Header>
 
-            <Image
-              source={image}
-              height={getValue(50)}
-              radius={10}
-              resizeMode="contain"
-            />
+        <Image
+          source={image}
+          height={getValue(50)}
+          radius={10}
+          resizeMode="contain"
+        />
 
-            <List
-                title="Comics Favoritas"
-                data={comicsFavorite}
-                renderItem={({ item }) => <Comic item={item} />}
-                keyExtractor={(item, index) => `${item.id}`}
-                numColumns={2}
-            />
-            
-        </Column>
+        <List
+          title="Comics Favoritas"
+          data={comicsFavorite}
+          renderItem={({ item }) => <Comic item={item} />}
+          keyExtractor={(item, index) => `${item.id}`}
+          numColumns={2}
+        />            
+
       </Container>
     );
   }

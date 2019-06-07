@@ -1,4 +1,33 @@
 {
-  "name": "Marviz",
-  "displayName": "Marviz"
+  "expo": {
+    "name": "Marviz",
+    "slug": "Marviz",
+    "privacy": "public",
+    "sdkVersion": "32.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#201823"
+    },
+    "updates": {
+      "enabled": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.marviz.app"
+    },
+    "android": {
+      "package": "com.marviz.app"
+    }
+  }
 }
