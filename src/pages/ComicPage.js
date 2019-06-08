@@ -207,7 +207,7 @@ class ComicPage extends Component {
               >
                 {!loading ? (
                   <RegularText>
-                    {!favorited ? "Favoritar" : "Desfavoritar"}
+                    {!favorited ? "Favorite" : "Favorited"}
                   </RegularText>
                 ) : (
                   <Loader size={20} />
