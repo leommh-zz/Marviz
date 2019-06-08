@@ -37,7 +37,7 @@ class Navbar extends PureComponent {
     const leftRender = () => {
       return (
         <TouchableOpacity onPress={Actions.pop}>
-          <BigText>Voltar</BigText>
+          <BigText>Back</BigText>
         </TouchableOpacity>
       );
     };
