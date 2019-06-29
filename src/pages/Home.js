@@ -5,14 +5,13 @@ import Comic from "../components/Comic";
 import Loader from "../components/Loader";
 import Menu from "../components/Menu";
 import List from "../components/List";
-import { getComics } from "../actions/MarvelActions";
+import { getComics, getStorageComics } from "../actions/MarvelActions";
 
 class Home extends Component {
 
   initialLimit = 10;
   limit = 20;
   skip = 0;
-
 
   getComics = (newLimit) => {
     this.props.getComics(newLimit);
@@ -24,7 +23,10 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.getComics(this.limit);
+    if (!!this.props.comics && this.props.comics.length <= 0) {
+      this.props.getStorageComics();
+      this.getComics(this.limit);
+    }
   }
 
   render() {
@@ -58,5 +60,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps, { getComics }
+  mapStateToProps, { getComics, getStorageComics }
 )(Home);
